@@ -80,8 +80,7 @@ def caffe_plot(logfile):
     plt.legend()
     plt.show()
     plt.savefig(r'D:\save.png')
-    
-
+   
 
 if __name__ == '__main__':
 	logfile = r"E:\DATA\FaceData\deepID-implement\log\INFO2016-07-04T19-59-13.txt"
