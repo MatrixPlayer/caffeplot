@@ -73,17 +73,43 @@ def parser_log(logfile):
 def caffe_plot(logfile):
     learning_rate, train_accuracy, train_loss, test_accuracy, test_loss = parser_log(logfile)
 
+    plt.figure(1)
+    plt.title('loss vs iter')
     plt.xlabel("iter")
     plt.ylabel("loss")
-    plt.plot(test_loss[0], test_loss[1], 'b-', label='test_loss')
-    plt.plot(train_loss[0], train_loss[1], 'r-', label='train_loss')
+    plt.plot(test_loss[0], test_loss[1], 'b-', label='test loss')
+    plt.plot(train_loss[0], train_loss[1], 'r-', label='train loss')
     plt.legend()
     plt.show()
-    plt.savefig(r'D:\save.png')
-   
+    plt.savefig(r'D:\loss.png')
+    
+    plt.figure(2)
+    plt.title("accuracy vs iter")
+    plt.xlabel("iter")
+    plt.ylabel("accuracy")
+    plt.plot(test_accuracy[0], test_accuracy[1], 'b-', label = 'test accuracy')
+    plt.plot(train_accuracy[0], train_accuracy[1], 'r-', label = 'train accuracy')
+    plt.legend()
+    plt.show()
+    plt.savefig(r'D:\accuracy.png')
+    
+    
+    plt.figure(3)
+    plt.title("lr vs iter")
+    plt.xlabel("iter")
+    plt.ylabel("learning rate")
+    plt.plot(learning_rate[0], learning_rate[1], 'b-', label = 'learning rate')
+    plt.legend()
+    plt.show()
+    plt.savefig(r'D:\learning_rate.png')
+    
+    
+
+
+
 
 if __name__ == '__main__':
-	logfile = r"E:\DATA\FaceData\deepID-implement\log\INFO2016-07-04T19-59-13.txt"
+	logfile = r"E:\DATA\FaceData\log\INFO2016-07-12T07-45-24_srcimg.txt"
 	caffe_plot(logfile)
  
  
